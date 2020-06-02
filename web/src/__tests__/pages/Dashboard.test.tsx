@@ -195,6 +195,8 @@ describe('Dashboard', () => {
       });
     });
 
+    console.log(inputName.value);
+
     expect(inputImage.value).toBe('http://rocketseat.com.br');
     expect(inputName.value).toBe('Veggie');
     expect(inputValue.value).toBe('21.90');
