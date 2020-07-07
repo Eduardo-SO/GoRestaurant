@@ -74,6 +74,10 @@ const FoodDetails: React.FC = () => {
   useEffect(() => {
     async function loadFood(): Promise<void> {
       // Load a specific food with extras based on routeParams id
+
+      const response = await api.get(`foods/${routeParams.id}`);
+
+      setFood(response.data);
     }
 
     loadFood();
@@ -81,18 +85,26 @@ const FoodDetails: React.FC = () => {
 
   function handleIncrementExtra(id: number): void {
     // Increment extra quantity
+    // setExtras(extras + 1);
   }
 
   function handleDecrementExtra(id: number): void {
     // Decrement extra quantity
+    // setExtras(extras - 1);
   }
 
   function handleIncrementFood(): void {
     // Increment food quantity
+
+    setFoodQuantity(foodQuantity + 1);
   }
 
   function handleDecrementFood(): void {
     // Decrement food quantity
+
+    if (foodQuantity === 0) return;
+
+    setFoodQuantity(foodQuantity - 1);
   }
 
   const toggleFavorite = useCallback(() => {
