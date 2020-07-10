@@ -36,20 +36,12 @@ const Orders: React.FC = () => {
 
       const response = await api.get('orders');
 
-      console.log(response.data);
+      const formattedOrders = response.data.map((order: Food) => ({
+        ...order,
+        formattedPrice: formatValue(order.price),
+      }));
 
-      // const {
-      //   id,
-      //   name,
-      //   description,
-      //   price,
-      //   formattedValue,
-      //   thumbnail_url,
-      // } = response.data;
-
-      // const formattedData = {};
-
-      setOrders(response.data);
+      setOrders(formattedOrders);
     }
 
     loadOrders();
