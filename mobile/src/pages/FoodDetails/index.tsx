@@ -93,7 +93,6 @@ const FoodDetails: React.FC = () => {
 
       setFood(foodWithFormattedPrice);
       setExtras(extrasWithQuantity);
-
       const favoriteResponse = await api.get(`favorites/${routeParams.id}`);
 
       if (favoriteResponse) setIsFavorite(true);
@@ -171,6 +170,10 @@ const FoodDetails: React.FC = () => {
 
   async function handleFinishOrder(): Promise<void> {
     // Finish the order and save on the API
+
+    await api.post('orders', food);
+
+    navigation.navigate('Dashboard');
   }
 
   // Calculate the correct icon name

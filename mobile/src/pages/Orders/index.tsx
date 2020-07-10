@@ -38,7 +38,7 @@ const Orders: React.FC = () => {
 
       const formattedOrders = response.data.map((order: Food) => ({
         ...order,
-        formattedPrice: formatValue(order.price),
+        formattedValue: formatValue(order.price),
       }));
 
       setOrders(formattedOrders);
@@ -68,7 +68,7 @@ const Orders: React.FC = () => {
               <FoodContent>
                 <FoodTitle>{item.name}</FoodTitle>
                 <FoodDescription>{item.description}</FoodDescription>
-                <FoodPricing>{item.formattedPrice}</FoodPricing>
+                <FoodPricing>{item.formattedValue}</FoodPricing>
               </FoodContent>
             </Food>
           )}
